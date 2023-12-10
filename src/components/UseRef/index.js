@@ -1,51 +1,37 @@
-import {useMemo,useState,useEffect} from "react"
-
-
-
-
+import React,{ useState,useCallback } from "react"
+import Button from "../Button"
+import Count from "./Count"
+import Title from "./Title"
 import "./index.css"
 
-const slowfunction=(first)=>{
-    console.log("slow")
-    for(let i=0;i<10000000;i++){}
-    return first*2
-}
 
-const Final = ()=>{
 
-    const [first,setfirst]=useState(0)
-    const [dark,setDark] = useState(false)
-
-    const doubleNumber = useMemo(()=>{
-        return slowfunction(first)
-    },[first])
+const final=()=>{
     
-    const STYLE=useMemo(()=>{
-            return{
-                backgroundColor:dark?"black":"white",
-                color:dark?"white":"black",
-                fontWeight:"bold"
-            }
-    },[dark])
+    const [age,setage]= useState(21);
+    const [salary,setsalary]= useState(7000);
 
-    useEffect(()=>{
-        console.log("theme changed")
-    },[STYLE])
+    const increamentAge= useCallback(()=>{
+        setage(age+1)
+    },[age])
 
-    return(
-        <>
-    <div>
-        <input type="number" value={first} placeholder="Enter" onChange={(e)=>setfirst(Number(e.target.value))}/>
-    </div>    
-    <br/>
-    <div>
-        <button onClick={(e)=>setDark(!dark)}>Change Theme</button>
-    </div>
-    <p style={STYLE}>The number:{doubleNumber}</p>
-    </>
+    const increamentsalary=useCallback(()=>{
+        setsalary(salary+1000)
+    },[salary]
     )
 
+
+
+    
+    return(
+        <div className="center12">
+           <Title/>
+           <Count text={"age"} number={age}/>
+           <Button clickHandler={increamentAge}>Increment age</Button>
+           <Count text={"salary"} number={salary}/>
+           <Button clickHandler={increamentsalary}>Increment salary</Button>
+        </div>
+    )
 }
 
-export default Final
-
+export default final

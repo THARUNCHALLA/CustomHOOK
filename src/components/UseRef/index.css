@@ -1,6 +1,11 @@
-div{
+.center12{
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
+}
+h1{
+    font-family:"roboto";
+    font-size:12px;
+    font-weight:bold;
 }
