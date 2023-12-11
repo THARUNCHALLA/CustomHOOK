@@ -1,11 +1,17 @@
-.center12{
+.container{
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
 }
 h1{
     font-family:"roboto";
     font-size:12px;
+    text-align:center;
     font-weight:bold;
+}
+button{
+    height:22px;
+    width:60px;
+    margin:4px;
+    font-size:10px;
 }

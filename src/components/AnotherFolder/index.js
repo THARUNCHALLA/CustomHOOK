@@ -1,10 +1,7 @@
 import useReuse from "../CustomHook"
-import "./index.css"
-
-
-
-const Final=()=>{
-    const [number,Increment,Decrement,Reset] = useReuse(10)
+const Final1=()=>{
+    const [number,Increment,Decrement,Reset] = useReuse()
+   
     return(
         <div>
            <h1>Count : {number}</h1>
@@ -17,4 +14,4 @@ const Final=()=>{
     )
 }
 
-export default Final
+export default Final1
